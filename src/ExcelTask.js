@@ -34,7 +34,7 @@ class ExcelTask {
   /**
    * ConvertNumberToString method used to convert a
    * number value for an excel column into a string value
-   * @param {String} columnStringVal
+   * @param {String} columnNumberVal
    * @returns Number
    */
   static ConvertNumberToString(columnNumberVal) {
