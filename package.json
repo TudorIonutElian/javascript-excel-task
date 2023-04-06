@@ -7,12 +7,15 @@
   "scripts": {
     "start-dev": "nodemon src/index.js",
     "vitest-dev": "vitest watch --dir tests",
-    "vitest-dev-ui": "vitest watch --dir tests --ui"
+    "vitest-dev-verbose": "vitest watch --dir tests --reporter verbose",
+    "vitest-dev-verbose-coverage": "vitest watch --dir tests --reporter verbose --coverage",
+    "vitest-dev-ui": "vitest watch --dir tests --reporter verbose --ui"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vitest/coverage-c8": "^0.29.8",
     "@vitest/ui": "^0.29.8",
     "nodemon": "^2.0.22"
   },
