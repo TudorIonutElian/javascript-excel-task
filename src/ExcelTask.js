@@ -6,21 +6,14 @@ class ExcelTask {
    * @returns Number
    */
   static ConvertStringColumnToNumber(columnStringVal) {
-    const base = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let i,
-      j,
-      result = 0;
+    let num = 0;
+    let i = 0;
 
-    for (
-      i = 0, j = columnStringVal.length - 1;
-      i < columnStringVal.length;
-      i += 1, j -= 1
-    ) {
-      result +=
-        Math.pow(base.length, j) * (base.indexOf(columnStringVal[i]) + 1);
+    while (i < columnStringVal.length) {
+      num = columnStringVal[i].charCodeAt(0) - 64 + num * 26;
+      i++;
     }
-
-    return result;
+    return num;
   }
 
   /**
@@ -29,7 +22,18 @@ class ExcelTask {
    * @param {String} columnStringVal
    * @returns Number
    */
-  static ConvertNumberToString(columnStringVal) {}
+  static ConvertNumberToString(columnNumberVal) {
+    let stringRet = '',
+      q,
+      r;
+    while (columnNumberVal > 0) {
+      q = (columnNumberVal - 1) / 26;
+      r = (columnNumberVal - 1) % 26;
+      columnNumberVal = Math.floor(q);
+      stringRet = String.fromCharCode(65 + r) + str;
+    }
+    return stringRet;
+  }
 }
 
 export default ExcelTask;
