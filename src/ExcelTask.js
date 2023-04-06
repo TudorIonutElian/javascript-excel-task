@@ -2,6 +2,7 @@ class ExcelTask {
   /**
    * ConvertStringColumnToNumber method used to convert a
    * string value for an excel column into a number value
+   * @static
    * @param {String} columnStringVal
    * @returns Number
    */
@@ -56,7 +57,7 @@ class ExcelTask {
       divider,
       rest;
     while (columnNumberVal > 0) {
-      // 1. Finde the divider
+      // 1. Find the divider
       divider = (columnNumberVal - 1) / 26;
 
       // 2. Find the rest
