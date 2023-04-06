@@ -5,12 +5,14 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vitest-dev": "vitest watch --dir tests --ui"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vitest/ui": "^0.29.8",
     "nodemon": "^2.0.22"
   },
   "dependencies": {

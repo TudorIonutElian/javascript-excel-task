@@ -6,6 +6,12 @@ class ExcelTask {
    * @returns Number
    */
   static ConvertStringColumnToNumber(columnStringVal) {
+    if (typeof columnStringVal !== 'string') {
+      throw Error(
+        '[ExcelTask][ConvertStringColumnToNumber][There is no string value passed]'
+      );
+    }
+
     let num = 0;
     let i = 0;
 
@@ -23,6 +29,11 @@ class ExcelTask {
    * @returns Number
    */
   static ConvertNumberToString(columnNumberVal) {
+    if (typeof columnNumberVal !== 'number') {
+      throw Error(
+        '[ExcelTask][ConvertNumberToString][There is no number value passed]'
+      );
+    }
     let stringRet = '',
       q,
       r;
