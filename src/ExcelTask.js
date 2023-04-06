@@ -6,18 +6,9 @@ class ExcelTask {
    * @returns Number
    */
   static ConvertStringColumnToNumber(columnStringVal) {
-    if (
-      !columnStringVal ||
-      (columnStringVal && typeof columnStringVal !== 'string')
-    ) {
+    if (typeof columnStringVal !== 'string') {
       throw Error(
         '[ExcelTask][ConvertStringColumnToNumber][There is no string value passed]'
-      );
-    }
-
-    if (columnStringVal.length === 0) {
-      throw Error(
-        '[ExcelTask][ConvertStringColumnToNumber][String value must have at least one letter]'
       );
     }
 
@@ -38,18 +29,9 @@ class ExcelTask {
    * @returns Number
    */
   static ConvertNumberToString(columnNumberVal) {
-    if (
-      !columnNumberVal ||
-      (columnNumberVal && typeof columnNumberVal !== 'number')
-    ) {
+    if (typeof columnNumberVal !== 'number') {
       throw Error(
         '[ExcelTask][ConvertNumberToString][There is no number value passed]'
-      );
-    }
-
-    if (columnNumberVal === 0) {
-      throw Error(
-        '[ExcelTask][ConvertNumberToString][Number value must be greather than 0]'
       );
     }
     let stringRet = '',
