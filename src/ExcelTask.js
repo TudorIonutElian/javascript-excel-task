@@ -1,3 +1,4 @@
+import ERRORS from './const/errors';
 class ExcelTask {
   /**
    * ConvertStringColumnToNumber method used to convert a
@@ -7,9 +8,7 @@ class ExcelTask {
    */
   static ConvertStringColumnToNumber(columnStringVal) {
     if (typeof columnStringVal !== 'string') {
-      throw Error(
-        '[ExcelTask][ConvertStringColumnToNumber][There is no string value passed]'
-      );
+      throw Error(ERRORS.CONVERT_STRING_TO_TUMBER_SHOULD_PASS_STRING);
     }
 
     let num = 0;
@@ -30,9 +29,7 @@ class ExcelTask {
    */
   static ConvertNumberToString(columnNumberVal) {
     if (typeof columnNumberVal !== 'number') {
-      throw Error(
-        '[ExcelTask][ConvertNumberToString][There is no number value passed]'
-      );
+      throw Error(ERRORS.CONVERT_NUMBER_TO_STRING_SHOULD_PASS_NUMBER);
     }
     let stringRet = '',
       q,
