@@ -10,9 +10,9 @@ const stringValueFromNumber = ExcelTask.ConvertNumberToString(
 );
 
 console.log(
-  `For the columnString value of ${columnStringValue}  we will have a return of ${numberValueFromString}`
+  `[AA]: [27]   --For the columnString value of ${columnStringValue}  we will have a return of ${numberValueFromString}`
 );
 
 console.log(
-  `For the number value of ${numberValueForStringConversion}  we will have a return of ${stringValueFromNumber}`
+  `[ZZ]: [702]  --For the number value of ${numberValueForStringConversion}  we will have a return of ${stringValueFromNumber}`
 );

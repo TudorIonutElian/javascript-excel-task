@@ -1,30 +1,58 @@
-import { assertType, expectTypeOf, test, expect } from 'vitest';
+import { assertType, expectTypeOf, test, expect, describe, it } from 'vitest';
 import ExcelTask from '../src/ExcelTask';
+import CHECKED_VALUES from '../src/const/checked_values';
 
 // Tests for --General
-test('ExcelTask to be a class', () => {
-  expectTypeOf(ExcelTask).toBeObject();
-});
 
-test('ExcelTask -- ConvertStringColumnToNumber to exists', () => {
-  expectTypeOf(ExcelTask.ConvertStringColumnToNumber).toBeFunction();
-});
+describe('ExcelTask', () => {
+  it('[General][ExcelTask to be a class]', () => {
+    expectTypeOf(ExcelTask).toBeObject();
+  });
 
-test('ExcelTask -- ConvertStringColumnToNumber to exists', () => {
-  expectTypeOf(ExcelTask.ConvertNumberToString).toBeFunction();
+  it('[General][ConvertStringColumnToNumber][Exists]', () => {
+    expectTypeOf(ExcelTask.ConvertStringColumnToNumber).toBeFunction();
+  });
+
+  it('[General][ConvertNumberToString][Exists]', () => {
+    expectTypeOf(ExcelTask.ConvertNumberToString).toBeFunction();
+  });
 });
 
 // Tests for ExcelTask - ConvertStringColumnToNumber
-test('ExcelTask -- ConvertStringColumnToNumber to throw', () => {
-  expect(() => ExcelTask.ConvertNumberToString(20).toThrowError());
+describe('ExcelTask -- ConvertStringColumnToNumber', () => {
+  it('[ConvertStringColumnToNumber][ThrowError]', () => {
+    expect(() => ExcelTask.ConvertNumberToString(20).toThrowError());
+  });
+
+  it('[ConvertStringColumnToNumber][Return Number]', () => {
+    const convStringToNumber = ExcelTask.ConvertStringColumnToNumber('AA');
+    expect(convStringToNumber).toBeTypeOf('number');
+  });
+
+  it('[ConvertStringColumnToNumber][Return Specific Number]', () => {
+    const convStringToNumber = ExcelTask.ConvertStringColumnToNumber('A');
+    expect(convStringToNumber).toEqual(1);
+  });
+
+  it('[ConvertStringColumnToNumber][Return Specific Number]', () => {
+    const convStringToNumber = ExcelTask.ConvertStringColumnToNumber('ZZ');
+    expect(convStringToNumber).toEqual(702);
+  });
 });
 
-test('ExcelTask -- ConvertStringColumnToNumber to return number', () => {
-  const convStringToNumber = ExcelTask.ConvertStringColumnToNumber('AA');
-  expect(convStringToNumber).toBeTypeOf('number');
-});
+// Tests for ExcelTask - ConvertNumberToString
+describe('ExcelTask -- ConvertNumberToString', () => {
+  it('[ConvertNumberToString][ThrowError]', () => {
+    expect(() => ExcelTask.ConvertNumberToString('20').toThrowError());
+  });
 
-test('ExcelTask -- ConvertStringColumnToNumber to return specific number', () => {
-  const convStringToNumber = ExcelTask.ConvertStringColumnToNumber('A');
-  expect(convStringToNumber).toEqual(1);
+  it('[ConvertNumberToString][Return String]', () => {
+    const convNumberToString = ExcelTask.ConvertNumberToString(702);
+    expect(convNumberToString).toBeTypeOf('string');
+  });
+
+  it('[ConvertNumberToString][Return Specific String]', () => {
+    const convNumberToString = ExcelTask.ConvertNumberToString(702);
+    expect(convNumberToString).toEqual('ZZ');
+  });
 });
