@@ -12,6 +12,12 @@ class ExcelTask {
       );
     }
 
+    if (columnStringVal.length === 0) {
+      throw Error(
+        '[ExcelTask][ConvertStringColumnToNumber][String value must have at least one letter]'
+      );
+    }
+
     let num = 0;
     let i = 0;
 
@@ -32,6 +38,12 @@ class ExcelTask {
     if (typeof columnNumberVal !== 'number') {
       throw Error(
         '[ExcelTask][ConvertNumberToString][There is no number value passed]'
+      );
+    }
+
+    if (columnNumberVal === 0) {
+      throw Error(
+        '[ExcelTask][ConvertNumberToString][Number value must be greather than 0]'
       );
     }
     let stringRet = '',
