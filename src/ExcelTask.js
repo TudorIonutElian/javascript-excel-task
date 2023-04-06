@@ -35,7 +35,10 @@ class ExcelTask {
    * @returns Number
    */
   static ConvertNumberToString(columnNumberVal) {
-    if (typeof columnNumberVal !== 'number') {
+    if (
+      !columnNumberVal ||
+      (columnNumberVal && typeof columnNumberVal !== 'number')
+    ) {
       throw Error(
         '[ExcelTask][ConvertNumberToString][There is no number value passed]'
       );
