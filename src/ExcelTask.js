@@ -53,13 +53,20 @@ class ExcelTask {
       );
     }
     let stringRet = '',
-      q,
-      r;
+      divider,
+      rest;
     while (columnNumberVal > 0) {
-      q = (columnNumberVal - 1) / 26;
-      r = (columnNumberVal - 1) % 26;
-      columnNumberVal = Math.floor(q);
-      stringRet = String.fromCharCode(65 + r) + stringRet;
+      // 1. Finde the divider
+      divider = (columnNumberVal - 1) / 26;
+
+      // 2. Find the rest
+      rest = (columnNumberVal - 1) % 26;
+
+      // 3. Floor the divider
+      columnNumberVal = Math.floor(divider);
+
+      // 4. Calculate the string based on all data
+      stringRet = String.fromCharCode(65 + rest) + stringRet;
     }
     return stringRet;
   }

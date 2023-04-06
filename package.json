@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start-dev": "nodemon src/index.js",
-    "vitest-dev": "vitest watch --dir tests --ui"
+    "vitest-dev": "vitest watch --dir tests",
+    "vitest-dev-ui": "vitest watch --dir tests --ui"
   },
   "keywords": [],
   "author": "",
