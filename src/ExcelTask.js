@@ -6,7 +6,10 @@ class ExcelTask {
    * @returns Number
    */
   static ConvertStringColumnToNumber(columnStringVal) {
-    if (typeof columnStringVal !== 'string') {
+    if (
+      !columnStringVal ||
+      (columnStringVal && typeof columnStringVal !== 'string')
+    ) {
       throw Error(
         '[ExcelTask][ConvertStringColumnToNumber][There is no string value passed]'
       );

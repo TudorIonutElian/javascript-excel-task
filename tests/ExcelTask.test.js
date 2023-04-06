@@ -24,6 +24,10 @@ describe('ExcelTask -- ConvertStringColumnToNumber', () => {
     expect(() => ExcelTask.ConvertNumberToString(20).toThrowError());
   });
 
+  it('[ConvertStringColumnToNumber][ThrowError]', () => {
+    expect(() => ExcelTask.ConvertNumberToString().toThrowError());
+  });
+
   it('[ConvertStringColumnToNumber][ThrowError][EmptyString]', () => {
     expect(() => ExcelTask.ConvertStringColumnToNumber('').toThrowError());
   });
@@ -48,6 +52,10 @@ describe('ExcelTask -- ConvertStringColumnToNumber', () => {
 describe('ExcelTask -- ConvertNumberToString', () => {
   it('[ConvertNumberToString][ThrowError]', () => {
     expect(() => ExcelTask.ConvertNumberToString('20').toThrowError());
+  });
+
+  it('[ConvertNumberToString][ThrowError]', () => {
+    expect(() => ExcelTask.ConvertNumberToString().toThrowError());
   });
 
   it('[ConvertNumberToString][ThrowError][Zero value]', () => {
