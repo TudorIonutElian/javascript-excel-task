@@ -24,6 +24,14 @@ describe('ExcelTask -- ConvertStringColumnToNumber', () => {
     expect(() => ExcelTask.ConvertNumberToString(20).toThrowError());
   });
 
+  it('[ConvertStringColumnToNumber][ThrowError]', () => {
+    expect(() => ExcelTask.ConvertNumberToString().toThrowError());
+  });
+
+  it('[ConvertStringColumnToNumber][ThrowError][EmptyString]', () => {
+    expect(() => ExcelTask.ConvertStringColumnToNumber('').toThrowError());
+  });
+
   it('[ConvertStringColumnToNumber][Return Number]', () => {
     const convStringToNumber = ExcelTask.ConvertStringColumnToNumber('AA');
     expect(convStringToNumber).toBeTypeOf('number');
@@ -44,6 +52,14 @@ describe('ExcelTask -- ConvertStringColumnToNumber', () => {
 describe('ExcelTask -- ConvertNumberToString', () => {
   it('[ConvertNumberToString][ThrowError]', () => {
     expect(() => ExcelTask.ConvertNumberToString('20').toThrowError());
+  });
+
+  it('[ConvertNumberToString][ThrowError]', () => {
+    expect(() => ExcelTask.ConvertNumberToString().toThrowError());
+  });
+
+  it('[ConvertNumberToString][ThrowError][Zero value]', () => {
+    expect(() => ExcelTask.ConvertNumberToString(0).toThrowError());
   });
 
   it('[ConvertNumberToString][Return String]', () => {
